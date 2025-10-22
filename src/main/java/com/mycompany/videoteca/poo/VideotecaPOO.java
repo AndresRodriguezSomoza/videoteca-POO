@@ -1,15 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- */
-
 package com.mycompany.videoteca.poo;
 
-/**
- *
- * @author Andres
- */
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.util.ArrayList;
 public class VideotecaPOO {
-
+//importe las librerias a usar
     public static void main(String[] args) {
         System.out.println("Hello World!");
         //bhjgjh
