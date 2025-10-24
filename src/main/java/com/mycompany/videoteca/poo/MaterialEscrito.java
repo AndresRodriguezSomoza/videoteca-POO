@@ -1,6 +1,6 @@
 package com.mycompany.videoteca.poo;
 
-public abstract class MaterialEscrito extends Material{
+public abstract class MaterialEscrito {
     protected String titulo;
     protected String autor;
     protected int anio;
@@ -13,12 +13,5 @@ public abstract class MaterialEscrito extends Material{
         this.editorial = editorial;
     }
 
-    // Métodos Getters
-    public String getTitulo() { return titulo; }
-    public String getAutor() { return autor; }
-    public int getAnio() { return anio; }
-    public String getEditorial() { return editorial; }
-
-    // Método abstracto (cada tipo mostrará su información)
     public abstract String mostrarInfo();
 }
