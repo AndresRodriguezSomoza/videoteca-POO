@@ -10,12 +10,10 @@ public class Libro extends MaterialEscrito {
         this.paginas = paginas;
     }
 
-    public String getGenero() { return genero; }
-    public int getPaginas() { return paginas; }
-
     @Override
     public String mostrarInfo() {
-        return "📖 LIBRO\nTítulo: " + titulo +
+        return "📘 LIBRO\n" +
+               "Título: " + titulo +
                "\nAutor: " + autor +
                "\nAño: " + anio +
                "\nEditorial: " + editorial +
