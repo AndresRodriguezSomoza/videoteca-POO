@@ -1,6 +1,6 @@
 package com.mycompany.videoteca.poo;
 
-public abstract class MaterialEscrito {
+public abstract class MaterialEscrito extends Material{
     protected String titulo;
     protected String autor;
     protected int anio;
