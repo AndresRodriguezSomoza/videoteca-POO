@@ -15,7 +15,7 @@ public abstract class CD extends MaterialAudiovisual {
         this.discografica = discografica;
     }
 
-    // Getters y Setters
+    // Getters y Setterss
     public String getArtista() { return artista; }
     public void setArtista(String artista) { this.artista = artista; }
     public int getNumeroCanciones() { return numeroCanciones; }
