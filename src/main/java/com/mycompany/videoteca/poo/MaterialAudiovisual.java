@@ -9,7 +9,7 @@ public abstract class MaterialAudiovisual extends Material {
         super();
     }
 
-    // Constructor corregido - el orden debe ser consistente
+   
     public MaterialAudiovisual(String cdidentificacion, String title, int onStock, 
                               String genre, int duracion) {
         super(cdidentificacion, title, onStock);
@@ -17,7 +17,7 @@ public abstract class MaterialAudiovisual extends Material {
         this.duracion = duracion;
     }
 
-    // Getters y Setters (usando minúsculas para atributos)
+    // Getters y Setters
     public String getGenre() {
         return genre;
     }
