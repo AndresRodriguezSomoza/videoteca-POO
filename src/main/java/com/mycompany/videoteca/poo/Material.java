@@ -1,7 +1,7 @@
 package com.mycompany.videoteca.poo;
 
 public abstract class Material {
-  
+
     private String Cdidentificacion;
     private String title;
     private int OnStock;
@@ -14,7 +14,7 @@ public abstract class Material {
         this.title = title;
         this.OnStock = OnStock;
     }
-    
+
     //Getters
     public String getCdidentificacion() {
         return Cdidentificacion;
@@ -27,7 +27,7 @@ public abstract class Material {
     public int getOnStock() {
         return OnStock;
     }
-    
+
     //Setters
     public void setCdidentificacion(String Cdidentificacion) {
         this.Cdidentificacion = Cdidentificacion;
@@ -40,11 +40,11 @@ public abstract class Material {
     public void setOnStock(int OnStock) {
         this.OnStock = OnStock;
     }
-    
+
     //Metodo crear CD-ID
-    public String createCD (String identification){
-    return "CD-"+identification+"-"+System.currentTimeMillis();
+    public String createCD(String identification) {
+        return "CD-" + identification + "-" + System.currentTimeMillis();
     }
-    
+
     public abstract String ShowInformation();
 }

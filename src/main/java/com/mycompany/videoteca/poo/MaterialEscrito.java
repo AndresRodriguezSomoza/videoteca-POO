@@ -1,17 +1,22 @@
 package com.mycompany.videoteca.poo;
 
-public abstract class MaterialEscrito {
-    protected String titulo;
-    protected String autor;
-    protected int anio;
-    protected String editorial;
+public abstract class MaterialEscrito extends Material {
+    protected String publisher;
 
-    public MaterialEscrito(String titulo, String autor, int anio, String editorial) {
-        this.titulo = titulo;
-        this.autor = autor;
-        this.anio = anio;
-        this.editorial = editorial;
+    public MaterialEscrito(String cdidentificacion, String title, int onStock, String publisher) {
+        super(cdidentificacion, title, onStock);
+        this.publisher = publisher;
     }
 
-    public abstract String mostrarInfo();
+    // Getter y Setter
+    public String getPublisher() {
+        return publisher;
+    }
+
+    public void setPublisher(String publisher) {
+        this.publisher = publisher;
+    }
+
+    @Override
+    public abstract String ShowInformation();
 }
