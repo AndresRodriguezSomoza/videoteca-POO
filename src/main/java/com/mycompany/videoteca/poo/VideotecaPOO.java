@@ -1,5 +1,5 @@
 /*
-SE MODIFICO EL 25/10/2025 POR ANDRES
+SE MODIFICO EL 29/10/2025 POR ANDRES
 ANDRES: BASE DE DATOS
 EDUARDO Y WILLIAM: VALIDACIONES
 ALEX Y MANUEL: SUB MENU ELIMINAR Y EDITAR
@@ -20,6 +20,7 @@ public class VideotecaPOO {
         MainMenu();
     }
 
+    //En esta parte creamos el menu de inicio
     public static void MainMenu() {
         while (true) {
             String[] opciones = {"Material Escrito", "Material Audiovisual", "Salir"};
@@ -52,6 +53,7 @@ public class VideotecaPOO {
         }
     }
 
+    //Desplegamos las opciones que van desde registrar un libro o revista, editar o eliminar
     public static void menuEscrito() {
         while (true) {
             String[] opciones = {"Registrar Libro", "Registrar Revista", "Ver Materiales", "Editar Material", "Eliminar Material", "Volver"};
@@ -91,6 +93,7 @@ public class VideotecaPOO {
         }
     }
 
+    //Desplegamos las opciones que van desde registrar un CD o DVD, editar o eliminar
     public static void menuAudiovisual() {
         while (true) {
             String[] opciones = {"Registrar CD", "Registrar DVD", "Ver Materiales", "Editar Material", "Eliminar Material", "Volver"};
@@ -130,6 +133,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En esta parte recogemos los datos y mandamos a llamar el insert para la tabla "libro"
     public static void ingresarLibro() {
         try {
             LibroDAO libroDAO = new LibroDAO();
@@ -191,6 +195,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En esta parte recogemos los datos y mandamos a llamar el insert para la tabla "revista"
     public static void ingresarRevista() {
         try {
             RevistaDAO revistaDAO = new RevistaDAO();
@@ -249,6 +254,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En esta parte recogemos los datos y mandamos a llamar el insert para la tabla "cd"
     public static void ingresarCD() {
         try {
             CDDAO cdDAO = new CDDAO();
@@ -290,7 +296,6 @@ public class VideotecaPOO {
             boolean exito = cdDAO.insertarCD(cd);
 
             if (exito) {
-                // Opcional: Mostrar información usando el método de CD
                 JOptionPane.showMessageDialog(null, cd.ShowInformation());
             } else {
                 JOptionPane.showMessageDialog(null, "❌ Error al registrar el CD en la base de datos.");
@@ -307,6 +312,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En esta parte recogemos los datos y mandamos a llamar el insert para la tabla "dvd"
     public static void ingresarDVD() {
         try {
             DVDDAO dvdDAO = new DVDDAO();
@@ -356,6 +362,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En este menu se muestran los botones de mostrar las listas ya sea de libro o de revista
     public static void mostrarEscritos() {
         String[] opciones = {
             "📚 Mostrar todos los Libros",
@@ -390,6 +397,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En este menu se muestran los botones de mostrar las listas ya sea de CD o de DVD
     public static void mostrarAudiovisuales() {
         String[] opciones = {
             "📀 Mostrar todos los CDs",
@@ -424,6 +432,7 @@ public class VideotecaPOO {
         }
     }
 
+    //La creacion de la lista Libros y la consulta para traer los datos de la tabla 'libro'
     public static void mostrarLibros() {
         try (Connection conexion = ConexionBD.conectar(); Statement stmt = conexion.createStatement(); ResultSet rs = stmt.executeQuery("SELECT * FROM libro")) {
 
@@ -454,6 +463,7 @@ public class VideotecaPOO {
         }
     }
 
+    //La creacion de la lista Revista y la consulta para traer los datos de la tabla 'revista'
     public static void mostrarRevistas() {
         try (Connection conexion = ConexionBD.conectar(); Statement stmt = conexion.createStatement(); ResultSet rs = stmt.executeQuery("SELECT * FROM revista")) {
 
@@ -482,6 +492,7 @@ public class VideotecaPOO {
         }
     }
 
+    //La creacion de la lista CD y la consulta para traer los datos de la tabla 'cd'
     public static void mostrarCDs() {
         try (Connection conexion = ConexionBD.conectar(); Statement stmt = conexion.createStatement(); ResultSet rs = stmt.executeQuery("SELECT * FROM cd")) {
 
@@ -511,6 +522,7 @@ public class VideotecaPOO {
         }
     }
 
+    //La creacion de la lista DVD y la consulta para traer los datos de la tabla 'dvd'
     public static void mostrarDVDs() {
         try (Connection conexion = ConexionBD.conectar(); Statement stmt = conexion.createStatement(); ResultSet rs = stmt.executeQuery("SELECT * FROM dvd")) {
 
@@ -540,6 +552,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En este metodo seleccionamos tanto la tabla 'libro' como 'revista' y mediante una comparacion seleccionaremos el metodo
     public static void editarMaterialEscrito() {
         try {
             if (!ConexionBD.verificarConexion()) {
@@ -553,7 +566,7 @@ public class VideotecaPOO {
 
             Connection conexion = ConexionBD.conectar();
 
-            // Obtener LIBROS
+            // Obtener Libros de la tabla 'libro'
             Statement stmtLibros = conexion.createStatement();
             ResultSet rsLibros = stmtLibros.executeQuery("SELECT cdidentificacion, titulo FROM libro");
 
@@ -568,7 +581,7 @@ public class VideotecaPOO {
             rsLibros.close();
             stmtLibros.close();
 
-            // Obtener REVISTAS
+            // Obtener Revistas de la tabla 'revista'
             Statement stmtRevistas = conexion.createStatement();
             ResultSet rsRevistas = stmtRevistas.executeQuery("SELECT cdidentificacion, titulo FROM revista");
 
@@ -617,6 +630,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En este metodo se editan los libros
     public static void editarLibro(String codigoLibro) {
         try {
             Connection conn = ConexionBD.conectar();
@@ -638,7 +652,7 @@ public class VideotecaPOO {
 
                 JOptionPane.showMessageDialog(null, mensajeActual, "Datos Actuales", JOptionPane.INFORMATION_MESSAGE);
 
-                // Solicitar nuevos datos (con valores actuales como predeterminados)
+                // Solicitar nuevos datos
                 String titulo = JOptionPane.showInputDialog("Ingrese el nuevo título:", rs.getString("titulo"));
                 if (titulo == null || titulo.trim().isEmpty()) {
                     JOptionPane.showMessageDialog(null, "❌ El título no puede estar vacío");
@@ -742,6 +756,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En este metodo se editan las revistas
     public static void editarRevista(String codigoRevista) {
         try {
             Connection conn = ConexionBD.conectar();
@@ -845,6 +860,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En este metodo se hace una consulta DELETE en las tablas 'libro' y 'revista'
     public static void eliminarMaterialEscrito() {
         try {
             // Verificar conexión a la base de datos
@@ -934,6 +950,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En este metodo seleccionamos tanto la tabla 'cd' como 'dvd' y mediante una comparacion seleccionaremos el metodo
     public static void editarMaterialAudiovisual() {
         try {
             if (!ConexionBD.verificarConexion()) {
@@ -1011,6 +1028,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En este metodo se editan los CD
     public static void editarCD(String codigoCD) {
         try {
             Connection conn = ConexionBD.conectar();
@@ -1127,6 +1145,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En este metodo se editan los DVD
     public static void editarDVD(String codigoDVD) {
         try {
             Connection conn = ConexionBD.conectar();
@@ -1232,6 +1251,7 @@ public class VideotecaPOO {
         }
     }
 
+    //En este metodo se hace una consulta DELETE en las tablas 'cd' y 'dvd'
     public static void eliminarMaterialAudiovisual() {
         try {
             // Verificar conexión a la base de datos
