@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+//La conexion a la base de datos llamada 'videoteca'
 public class ConexionBD {
     private static final String URL = "jdbc:mysql://localhost:3306/videoteca";
     private static final String USER = "root";

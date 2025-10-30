@@ -3,6 +3,7 @@ package com.mycompany.videoteca.poo;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
+//Aqui en RevistaDAO se crea el codigo y se hace el INSERT a la base de datos
 public class RevistaDAO {
 
     public String generarCodigoRevista() throws SQLException {

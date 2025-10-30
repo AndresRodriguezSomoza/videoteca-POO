@@ -1,5 +1,6 @@
 package com.mycompany.videoteca.poo;
 
+//La clase 'MaterialAudiovisual' tiene herencia de la clase 'Material'
 public abstract class MaterialAudiovisual extends Material {
 
     private String genre;

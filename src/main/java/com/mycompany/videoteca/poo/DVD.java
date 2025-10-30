@@ -1,5 +1,6 @@
 package com.mycompany.videoteca.poo;
 
+//La clase 'DVD' tiene herencia de la clase 'MaterialAudiovisual'
 public abstract class DVD extends MaterialAudiovisual {
 
     private String director;

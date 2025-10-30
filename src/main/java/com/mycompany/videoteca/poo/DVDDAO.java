@@ -3,6 +3,7 @@ package com.mycompany.videoteca.poo;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
+//Aqui en DVDDAO se crea el codigo y se hace el INSERT a la base de datos
 public class DVDDAO {
     public String generarCodigoDVD() throws SQLException{
         String sql = "SELECT MAX(CAST(SUBSTRING(cdidentificacion, 4) AS UNSIGNED)) as max_numero " +

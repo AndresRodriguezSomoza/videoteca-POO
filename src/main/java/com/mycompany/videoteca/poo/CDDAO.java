@@ -3,6 +3,7 @@ package com.mycompany.videoteca.poo;
 import java.sql.*;
 import javax.swing.JOptionPane;
 
+//Aqui en CDDAO se crea el codigo y se hace el INSERT a la base de datos
 public class CDDAO {
 
     public String generarCodigoCD() throws SQLException {

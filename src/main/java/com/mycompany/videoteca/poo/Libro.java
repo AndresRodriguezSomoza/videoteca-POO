@@ -1,5 +1,6 @@
 package com.mycompany.videoteca.poo;
 
+//La clase 'Libro' tiene herencia de la clase 'MaterialEscrito'
 public class Libro extends MaterialEscrito {
 
     private String autor;

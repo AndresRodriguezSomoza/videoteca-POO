@@ -1,5 +1,6 @@
 package com.mycompany.videoteca.poo;
 
+//La clase 'Revista' tiene herencia de la clase 'MaterialEscrito'
 public class Revista extends MaterialEscrito {
     private String periocidad;
     private String fechaPubli;

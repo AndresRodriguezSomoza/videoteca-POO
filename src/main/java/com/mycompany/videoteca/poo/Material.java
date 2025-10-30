@@ -1,5 +1,6 @@
 package com.mycompany.videoteca.poo;
 
+//La clase Material es la clase principal
 public abstract class Material {
 
     private String Cdidentificacion;

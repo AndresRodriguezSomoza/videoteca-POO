@@ -1,5 +1,6 @@
 package com.mycompany.videoteca.poo;
 
+//La clase 'MaterialEscrito' tiene herencia de la clase 'Material'
 public abstract class MaterialEscrito extends Material {
     protected String publisher;
 

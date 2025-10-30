@@ -1,5 +1,6 @@
 package com.mycompany.videoteca.poo;
 
+//La clase 'CD' tiene herencia de la clase 'MaterialAudiovisual'
 public abstract class CD extends MaterialAudiovisual {
 
     private String artista;
